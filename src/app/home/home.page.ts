@@ -14,7 +14,7 @@ export class HomePage {
   constructor(private http:HttpClient) {}
   onSubmit(){
     //http://localhost:9000/?
-    this.http.get('http://192.168.0.112:5000/?' + 'home=' + this.home +'&away=' + this.away).subscribe(respon => {
+    this.http.get('http://localhost:5000/?' + 'home=' + this.home +'&away=' + this.away).subscribe(respon => {
 
       if(respon['prediksi'] === '[1]'){
         this.res = 'Pertandingan berakhir seri!';
