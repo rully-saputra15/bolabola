@@ -1,14 +1,58 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Bola Bola
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Prediksi Tim Premiere League Kesukaan mu!</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Home Team</ion-label>
+        <ion-select ([ngModel])="home"(ionChange)="onChangeHome($event)" placeholder="Select One">
+          <ion-select-option value="26">Manchester United</ion-select-option>
+          <ion-select-option value="25">Manchester City</ion-select-option>
+          <ion-select-option value="24">Liverpool</ion-select-option>
+          <ion-select-option value="41">Totenham Hotspur</ion-select-option>
+          <ion-select-option value="0">Arsenal</ion-select-option>
+          <ion-select-option value="17">Everton</ion-select-option>
+          <ion-select-option value="23">Leicester City</ion-select-option>
+          <ion-select-option value="13">Chelsea</ion-select-option>
+          <ion-select-option value="37">Southampton</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+          <ion-label>Away Team</ion-label>
+          <ion-select ([ngModel])="away" (ionChange)="onChangeAway($event)"placeholder="Select One">
+            <ion-select-option value="26">Manchester United</ion-select-option>
+            <ion-select-option value="25">Manchester City</ion-select-option>
+            <ion-select-option value="24">Liverpool</ion-select-option>
+            <ion-select-option value="41">Totenham Hotspur</ion-select-option>
+            <ion-select-option value="0">Arsenal</ion-select-option>
+            <ion-select-option value="17">Everton</ion-select-option>
+            <ion-select-option value="23">Leicester City</ion-select-option>
+            <ion-select-option value="13">Chelsea</ion-select-option>
+            <ion-select-option value="37">Southampton</ion-select-option>
+          </ion-select>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+       <ion-button (click)="onSubmit()">Predict!</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="homeScore">Home - Away : {{homeScore}} - {{awayScore}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="res">{{res}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
